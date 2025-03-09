@@ -1,5 +1,8 @@
+from argparse import ArgumentTypeError
+
 import cv2
 import numpy as np
+
 
 def flip_image(img: np.ndarray, direction: str) -> np.ndarray:
     """
@@ -13,4 +16,4 @@ def flip_image(img: np.ndarray, direction: str) -> np.ndarray:
     elif direction == 'vertical':
         return cv2.flip(img, 0)
     else:
-        return img
+        raise  ArgumentTypeError('Некорректный direction в flip_image')
